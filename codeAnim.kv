@@ -1,0 +1,69 @@
+<RootLayout>:
+    MyCanvas:
+        id: stage
+
+        Bobsfangi:
+            id: player_a
+            size_hint: None, None
+            size: "60dp", "60dp"
+            pos_hint: {"x": 0.35, "y": 0.55}
+
+        Patric:
+            id: player_b
+            size_hint: None, None
+            size: "60dp", "160dp"
+            pos_hint: {"x": 0.1, "y": 0.1}
+
+    CodeAnims:
+        id: code_panel
+        size_hint: 0.3, 0.7
+        pos_hint: {"right": 0.98, "center_y": 0.5}
+
+<MyCanvas>:
+    canvas.before:
+        Color:
+            rgba: 0.15, 0.15, 0.15, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Bobsfangi>:
+    canvas:
+        Color:
+            rgba: 1, 1, 0.5, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Patric>:
+    canvas:
+        Color:
+            rgba: 1, 0.71, 0.76, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<CodeAnims>:
+    orientation: "vertical"
+    padding: "10dp"
+    spacing: "10dp"
+    canvas.before:
+        Color:
+            rgba: 0.2, 0.2, 0.25, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "Code Logic"
+        font_size: "25sp"
+        size_hint_y: 0.15
+
+    TextInput:
+        id: cmd
+        hint_text: "if ..."
+        font_size: "20sp"
+    
+    Button:
+        text:"enter code"
+        on_press: root.start(cmd.text)
